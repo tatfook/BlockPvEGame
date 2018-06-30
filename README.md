@@ -23,8 +23,14 @@ A block game for the hackathon of tatfook
         - 被攻击 
 ![image](https://user-images.githubusercontent.com/5885941/42093897-8e77cc78-7be0-11e8-8d80-b509943b3ca0.png)
 - 音效
+    - 游戏加载
+    - 游戏开启
+    - 游戏结束
+    - 走路
     - 攻击
     - 被攻击 
+- 贴图材质
+    - [[Paracraft][64x][鲜艳]卡通材质包.zip](https://github.com/tatfook/BlockPvEGame/blob/master/worlds/%5BParacraft%5D%5B64x%5D%5B%E9%B2%9C%E8%89%B3%5D%E5%8D%A1%E9%80%9A%E6%9D%90%E8%B4%A8%E5%8C%85.zip)
 - 游戏截图
 ![image](https://user-images.githubusercontent.com/5885941/42100936-326e7792-7bf4-11e8-9920-ca86f8227305.png)
 ![image](https://user-images.githubusercontent.com/5885941/42101178-df892026-7bf4-11e8-8165-6a49ba2334d8.png)
@@ -158,5 +164,6 @@ end
 ### 参考
 - [paracraft 课程实例](https://keepwork.com/kecheng/cs/all)
 - [a-star](https://www.redblobgames.com/pathfinding/a-star/introduction.html)
+- [队伍列表](https://keepwork.com/official/hackathon/1st/%E9%98%9F%E4%BC%8D%E5%88%97%E8%A1%A8)
 ### 源码
 - [BlockPvEGame](https://github.com/tatfook/BlockPvEGame)
