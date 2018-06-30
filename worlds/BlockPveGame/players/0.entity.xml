@@ -1,13 +1,15 @@
 
-<entity anim="Create" bx="19199" by="5" bz="19060" class="Player" displayName="0" facing="-0.32339105010033" item_id="30002" motionX="0" motionY="0" motionZ="0" name="default" onGround="true" rotationYaw="-0.32339105010033">
-	<inventory handtool_bagpos="6">
+<entity anim="Break" bx="19200" by="5" bz="19056" class="Player" displayName="0" facing="-2.5407881736755" item_id="30002" motionX="0" motionY="0" motionZ="0" name="default" onGround="true" rotationYaw="-2.5407881736755">
+	<inventory handtool_bagpos="1">
 		<slot count="1" id="228"/>
 		<slot count="2" id="10059">/t 4.5 /end
 		</slot>
-		<slot/>
-		<slot/>
-		<slot/>
-		<slot/>
+		<slot count="1" id="10059">/t 1.8 /end
+		</slot>
+		<slot count="1" id="197"/>
+		<slot count="1" id="189"/>
+		<slot count="1" id="10059">/t 3 /end
+		</slot>
 		<slot/>
 		<slot/>
 		<slot/>

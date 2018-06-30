@@ -29,6 +29,8 @@ function setHeroPos(x,y,z,dx,dy,dz)
     hero_world_x = x;
     hero_world_y = y;
     hero_world_z = z;
+
+    playSound("worlds/DesignHouse/BlockPveGame/sounds/walk.mp3");
 end
 
 function findNeighborMobs(x,z)
@@ -75,10 +77,13 @@ function checkState(path_list)
 
     if(hero_state == "wait")then
         playLoop(1200, 6200)
+        playSound("");
     elseif(hero_state == "attack")then
         playLoop(600, 1200)
+        playSound("worlds/DesignHouse/BlockPveGame/sounds/attack.mp3");
     elseif(hero_state == "attacked")then
         playLoop(6500, 6880+2000)
+        playSound("worlds/DesignHouse/BlockPveGame/sounds/hero_attacked.mp3");
     elseif(hero_state == "walking")then
         if(path_list)then
             local last_x = hero_world_x;
@@ -111,8 +116,8 @@ function checkState(path_list)
                     last_y = y;
                     last_z = z;
     
-                    -- only check the last waypoint
-                    if(k == (len - 1))then
+                    -- only check at last two waypoints
+                    if((k == len) or (k == len - 1))then
                         local mob_x,mob_z = findNeighborMobs(x,z);
                         if(mob_x and mob_z)then
                             local facing = getFacingFromOffset(mob_x - x, 0, mob_z - z);

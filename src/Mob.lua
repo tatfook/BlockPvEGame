@@ -18,6 +18,7 @@ function checkState()
         playLoop(0, 600)
     elseif(mob_state == "attacked")then
         playLoop(700, 1234+500)
+        playSound("worlds/DesignHouse/BlockPveGame/sounds/attacked.mp3");
     end
 end
 function createMob()

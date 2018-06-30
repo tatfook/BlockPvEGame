@@ -1,9 +1,3 @@
---[[
-Title: Main.lua
-Author(s): leio
-Date: 2018/6/28
-Desc: game main file
-]]
 ------------------------------------------map 1
 --local map_source = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,1,0,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,1,},{1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},}
 -- local map_start_x = 19205;
@@ -42,21 +36,28 @@ local map_start_x = 19202;
 local map_start_y = 7;
 local map_start_z = 19066;
 
-local hero_born_x = 19202;
-local hero_born_y = 6;
-local hero_born_z = 19066;
+-- world edge
+-- local hero_born_x = 19202;
+-- local hero_born_y = 6;
+-- local hero_born_z = 19066;
 
+local hero_born_x = 19221;
+local hero_born_y = 6;
+local hero_born_z = 19088;
 
 local hero_world_x = nil;
 local hero_world_y = nil;
 local hero_world_z = nil;
 
+local color_green = "#3fe60c";
+local color_red = "#ff0000";
 
 _G.block_game = {};
 _G.block_game.map_detail = {};
 _G.block_game.map_source = map_source;
 _G.block_game.hero_state = "wait"; -- "wait" "walking" "attack" "attacked"
 _G.block_game.mob_state = "wait";
+_G.block_game.tip_name = "game_tip";
 
 _G.block_game.hero_born_y = hero_born_y;
 _G.block_game.mob_list = {
@@ -174,6 +175,8 @@ function onStart()
     if(not is_start)then
         is_start = true;
     end
+    playSound("worlds/DesignHouse/BlockPveGame/sounds/loading.mp3");
+    showVariable("game_tip","加载游戏中,请稍等...",color_red);
     cmd("/mode game");
     log("=========start game");
     setHeroWorldPosition(hero_born_x,hero_born_y,hero_born_z);
@@ -191,6 +194,9 @@ function onStart()
                             hero_world_y = hero_world_y, 
                             hero_world_z = hero_world_z, 
     });
+    playSound("worlds/DesignHouse/BlockPveGame/sounds/start.mp3");
+    showVariable("game_tip","游戏开始",color_green);
+
 end
 function canPick(w_x,w_y,w_z)
     if(is_searching)then
@@ -220,6 +226,8 @@ function doPick()
         --log("can't pick now!");
         return
     end
+    showVariable("game_tip",string.format( "Pick x = %d, z = %d",x,z),color_green);
+
     last_pick_x = x;
     last_pick_z = z;
     is_searching = true;
@@ -251,6 +259,11 @@ registerBroadcastEvent("onSearchFinished", function(msg)
             });
         end
 end)
+function game_exit()
+    playSound("worlds/DesignHouse/BlockPveGame/sounds/ending.mp3");
+    cmd("/mode edit");
+    exit();
+end
 while(true) do
     if(isKeyPressed("t")) then
         onStart();
@@ -274,8 +287,7 @@ while(true) do
     elseif(isKeyPressed("6"))then
         _G.block_game.mob_state = "attacked";
     elseif(isKeyPressed("0"))then
-        exit();
-        cmd("/mode edit");
+        game_exit();
     end
     
     if(is_start)then
@@ -287,5 +299,4 @@ while(true) do
             last_time = now;
         end
     end
-    
 end
