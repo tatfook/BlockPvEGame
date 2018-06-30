@@ -72,6 +72,17 @@ function findNeighborMobs(x,z)
     end
     
 end
+function find_mob_id(x,z)
+    local mob_list = _G.block_game.mob_list;
+        local k,v;
+        for k,v in ipairs(mob_list)do
+            local mob_x = v.pos[1];
+            local mob_z = v.pos[2];
+            if(x == mob_x and z == mob_z)then
+                return k;
+            end
+        end
+end
 function checkState(path_list)
     local hero_state = _G.block_game.hero_state;
 
@@ -125,8 +136,14 @@ function checkState(path_list)
                             turnTo(facing);
                             setHeroPos(x, y, z, dx, dy, dz);
                             _G.block_game.hero_state = "attack";
-                            checkState();
+
+                            local mob_index = find_mob_id(mob_x,mob_z)
+                            _G.block_game.mob_index = mob_index;
                             _G.block_game.mob_state = "attacked";
+                            checkState();
+                            log({mob_state = "attacked", mob_index = mob_index});
+                            broadcast("onMobState",{mob_state = "attacked", mob_index = mob_index});
+
                             wait(0.2);
                             return 
                         end

@@ -1,0 +1,44 @@
+
+<entity anim="Break" bx="19201" by="5" bz="19059" class="Player" displayName="0" facing="16.372953414917" item_id="30002" motionX="0" motionY="0" motionZ="0" name="default" onGround="true" rotationYaw="16.372953414917">
+	<inventory handtool_bagpos="1">
+		<slot count="1" id="10059">/t 30 /end
+		</slot>
+		<slot count="2" id="10059">/t 4.5 /end
+		</slot>
+		<slot count="1" id="10059">/t 1.8 /end
+		</slot>
+		<slot count="1" id="197"/>
+		<slot count="1" id="189"/>
+		<slot count="1" id="10059">/t 3 /end
+		</slot>
+		<slot/>
+		<slot/>
+		<slot/>
+		<slot count="1" id="10059">/t 1.2 /end
+		</slot>
+		<slot count="2" id="10059">/t 1.1 /end
+		</slot>
+		<slot count="2" id="10059">/t 3.2 /end
+		</slot>
+		<slot count="1" id="105"/>
+		<slot count="1" id="211"/>
+		<slot count="1" id="10059">/t 1.5 /end
+		</slot>
+		<slot count="1" id="10059">/t 4.5 /end
+		</slot>
+		<slot count="1" id="52"/>
+		<slot count="1" id="17"/>
+		<slot count="1" id="159"/>
+		<slot count="1" id="87"/>
+		<slot count="1" id="12"/>
+		<slot count="1" id="151"/>
+		<slot count="8" id="10059">/t 30 /end
+		</slot>
+		<slot count="3" id="10059">/t 0.5 /end
+		</slot>
+		<slot count="1" id="190"/>
+		<slot count="1" id="219"/>
+		<slot count="1" id="228"/>
+	</inventory>
+	<abilities/>
+</entity>

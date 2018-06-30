@@ -1,0 +1,4 @@
+
+<pe:mcml>
+	<pe:world create_date="2018-6-29" desc="" name="BlockPveGame" nid="0" renderdist="200" rendermethod="" seed="BlockPveGame" shadow="" size="584525" texture_pack_path="worlds/BlockTextures/[Paracraft][64x][鲜艳]卡通材质包.zip" texture_pack_text="[Paracraft][64x][鲜艳]卡通材质包.zip" texture_pack_type="local" texture_pack_url="" totaltime="0" waterreflection="" world_generator="superflat"/>
+</pe:mcml>

@@ -58,6 +58,8 @@ _G.block_game.map_source = map_source;
 _G.block_game.hero_state = "wait"; -- "wait" "walking" "attack" "attacked"
 _G.block_game.mob_state = "wait";
 _G.block_game.tip_name = "game_tip";
+_G.block_game.mob_index = nil;
+_G.block_game.mob_count = 0;
 
 _G.block_game.hero_born_y = hero_born_y;
 _G.block_game.mob_list = {
