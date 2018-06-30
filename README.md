@@ -149,11 +149,14 @@ end
  - 更平滑的移动
  - 英雄和怪物之间根据不同状态，切换动画效果
  - 技能cooldown时间
- - 8个方向的移动，目前是4个方向
+ - 支持8个方向的移动，目前是4个方向
  - 英雄移动避开怪物
  - 怪物随机移动
  - 英雄/怪物生命值
  - 根据地图生成英雄/怪物位置
  - 更多的技能
 ### 参考
-[paracraft 课程实例](https://keepwork.com/kecheng/cs/all)
+- [paracraft 课程实例](https://keepwork.com/kecheng/cs/all)
+- [a-star](https://www.redblobgames.com/pathfinding/a-star/introduction.html)
+### 源码
+- [BlockPvEGame](https://github.com/tatfook/BlockPvEGame)
